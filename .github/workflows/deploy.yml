@@ -20,9 +20,8 @@ jobs:
 
       - name: Install Cloud Foundry CLI
         run: |
-          curl -L https://packages.cloudfoundry.org/stable?release=linux64-binary -o cf.tgz
-          tar -xzf cf.tgz
-          sudo mv cf /usr/local/bin/cf
+          curl -L https://packages.cloudfoundry.org/stable?release=debian64 -o cf-cli.deb
+          sudo dpkg -i cf-cli.deb
           cf version
 
       - name: Install MTA Build Tool
