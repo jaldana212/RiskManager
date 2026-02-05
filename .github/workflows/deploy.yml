@@ -20,8 +20,10 @@ jobs:
 
       - name: Install Cloud Foundry CLI
         run: |
-          curl -L "https://packages.cloudfoundry.org/stable?release=linux64-binary&version=8" | tar -zx
+          curl -L https://packages.cloudfoundry.org/stable?release=linux64-binary -o cf.tgz
+          tar -xzf cf.tgz
           sudo mv cf /usr/local/bin/cf
+          cf version
 
       - name: Install MTA Build Tool
         run: npm install -g mbt
