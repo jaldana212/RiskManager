@@ -36,7 +36,7 @@ jobs:
         run: npm install -g mbt
 
       - name: Install project dependencies
-        run: npm install
+        run: npm ci
 
       - name: Login to Cloud Foundry
         run: |
@@ -48,7 +48,13 @@ jobs:
             -s ${{ secrets.CF_SPACE }}
 
       - name: Build MTA
-        run: mbt build
+        run: |
+          export PATH=$PATH:$(npm root -g)/@sap/cds-dk/bin
+          cds --version
+          mbt build
+
+      - name: List MTA archive
+        run: ls -lh mta_archives
 
       - name: Deploy to SAP BTP
         run: cf deploy mta_archives/*.mtar -f
