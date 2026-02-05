@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install Cloud Foundry CLI
+      - name: Install Cloud Foundry CLI v7 (SAP compatible)
         run: |
           curl -L https://packages.cloudfoundry.org/stable?release=debian64 -o cf-cli.deb
           sudo dpkg -i cf-cli.deb
