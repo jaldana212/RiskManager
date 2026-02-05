@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Install Cloud Foundry CLI
         run: |
@@ -24,8 +24,14 @@ jobs:
           sudo dpkg -i cf-cli.deb
           cf version
 
+      - name: Install CDS Development Kit
+        run: npm install -g @sap/cds-dk
+
       - name: Install MTA Build Tool
         run: npm install -g mbt
+
+      - name: Install project dependencies
+        run: npm install
 
       - name: Login to Cloud Foundry
         run: |
