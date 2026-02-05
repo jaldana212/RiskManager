@@ -39,4 +39,4 @@ jobs:
         run: mbt build
 
       - name: Deploy to SAP BTP
-        run: cf deploy mta_archives/*.mtar -f
+        run: cf deploy mta_archives/*.mtar -fs
