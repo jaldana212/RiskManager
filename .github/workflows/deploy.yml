@@ -27,7 +27,7 @@ jobs:
       - name: Install CF MTA Plugin
         run: |
           cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org
-          cf install-plugin multiapps -f
+          cf install-plugin multiapps -v 2.0.4 -f
 
       - name: Install CDS Development Kit
         run: npm install -g @sap/cds-dk
